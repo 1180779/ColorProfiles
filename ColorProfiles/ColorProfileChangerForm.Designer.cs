@@ -1,6 +1,6 @@
 ﻿namespace ColorProfiles
 {
-    partial class Form1
+    partial class ColorProfileChangerForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -103,6 +103,7 @@
             zapiszWynikToolStripMenuItem.Name = "zapiszWynikToolStripMenuItem";
             zapiszWynikToolStripMenuItem.Size = new Size(110, 24);
             zapiszWynikToolStripMenuItem.Text = "Zapisz Wynik";
+            zapiszWynikToolStripMenuItem.Click += zapiszWynikToolStripMenuItem_Click;
             // 
             // szarośćToolStripMenuItem
             // 
@@ -110,7 +111,7 @@
             szarośćToolStripMenuItem.Size = new Size(73, 24);
             szarośćToolStripMenuItem.Text = "Szarość";
             // 
-            // Form1
+            // ColorProfileChangerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -121,7 +122,7 @@
             Controls.Add(colorProfileControlChanged);
             Controls.Add(colorProfileControlLoaded);
             MainMenuStrip = menuStrip1;
-            Name = "Form1";
+            Name = "ColorProfileChangerForm";
             Text = "ColorProfilesChanger";
             ((System.ComponentModel.ISupportInitialize)pictureBoxLoaded).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxChanged).EndInit();

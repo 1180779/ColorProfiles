@@ -1,6 +1,6 @@
 ﻿namespace ColorProfiles
 {
-    partial class BusyForm
+    partial class BusyConvertingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,12 +36,12 @@
             label1.AutoSize = true;
             label1.Location = new Point(31, 27);
             label1.Name = "label1";
-            label1.Size = new Size(269, 20);
+            label1.Size = new Size(253, 20);
             label1.TabIndex = 0;
-            label1.Text = "Konwertowanie obrazu. Proszę czekać...";
+            label1.Text = "Generowanie obrazu. Proszę czekać...";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // BusyForm
+            // BusyConvertingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -49,9 +49,9 @@
             ControlBox = false;
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "BusyForm";
+            Name = "BusyConvertingForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "BusyForm";
+            Text = "Generowanie";
             ResumeLayout(false);
             PerformLayout();
         }

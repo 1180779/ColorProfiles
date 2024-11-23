@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ColorProfiles
 {
-    public partial class BusyForm : Form
+    public partial class BusyLoadingForm : Form
     {
-        public BusyForm()
+        public BusyLoadingForm()
         {
             InitializeComponent();
             this.Shown += (s, e) => _readyTask.SetResult(true);
