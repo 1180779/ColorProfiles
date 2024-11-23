@@ -10,16 +10,19 @@ using System.Windows.Forms;
 
 namespace ColorProfiles
 {
-    public partial class UserControl1 : UserControl
+    public partial class BusyForm : Form
     {
-        public UserControl1()
+        public BusyForm()
         {
             InitializeComponent();
+            this.Shown += (s, e) => _readyTask.SetResult(true);
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
+        private TaskCompletionSource<bool> _readyTask = new TaskCompletionSource<bool>();
 
+        public Task WaitForReadyAsync()
+        {
+            return _readyTask.Task;
         }
     }
 }

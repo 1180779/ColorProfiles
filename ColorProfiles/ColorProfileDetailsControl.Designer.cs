@@ -1,6 +1,6 @@
 ﻿namespace ColorProfiles
 {
-    partial class UserControl1
+    partial class ColorProfileDetailsControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -41,12 +41,17 @@
             textBoxBX = new TextBox();
             label6 = new Label();
             textBoxGamma = new TextBox();
+            textBoxWhiteY = new TextBox();
+            textBoxWhiteX = new TextBox();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(379, 5);
+            label1.Location = new Point(344, 4);
             label1.Name = "label1";
             label1.Size = new Size(18, 20);
             label1.TabIndex = 0;
@@ -56,7 +61,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(455, 5);
+            label2.Location = new Point(420, 4);
             label2.Name = "label2";
             label2.Size = new Size(17, 20);
             label2.TabIndex = 1;
@@ -66,7 +71,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(260, 43);
+            label3.Location = new Point(225, 42);
             label3.Name = "label3";
             label3.Size = new Size(73, 20);
             label3.TabIndex = 2;
@@ -76,7 +81,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(259, 83);
+            label4.Location = new Point(224, 82);
             label4.Name = "label4";
             label4.Size = new Size(58, 20);
             label4.TabIndex = 3;
@@ -86,7 +91,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(259, 128);
+            label5.Location = new Point(224, 127);
             label5.Name = "label5";
             label5.Size = new Size(70, 20);
             label5.TabIndex = 4;
@@ -95,45 +100,51 @@
             // 
             // textBoxRX
             // 
-            textBoxRX.Location = new Point(355, 40);
+            textBoxRX.Location = new Point(320, 39);
             textBoxRX.Name = "textBoxRX";
             textBoxRX.Size = new Size(61, 27);
             textBoxRX.TabIndex = 5;
+            textBoxRX.TextChanged += textBoxRX_TextChanged;
             // 
             // textBoxRY
             // 
-            textBoxRY.Location = new Point(436, 40);
+            textBoxRY.Location = new Point(401, 39);
             textBoxRY.Name = "textBoxRY";
             textBoxRY.Size = new Size(61, 27);
             textBoxRY.TabIndex = 6;
+            textBoxRY.TextChanged += textBoxRY_TextChanged;
             // 
             // textBoxGY
             // 
-            textBoxGY.Location = new Point(436, 83);
+            textBoxGY.Location = new Point(401, 82);
             textBoxGY.Name = "textBoxGY";
             textBoxGY.Size = new Size(61, 27);
             textBoxGY.TabIndex = 8;
+            textBoxGY.TextChanged += textBoxGY_TextChanged;
             // 
             // textBoxGX
             // 
-            textBoxGX.Location = new Point(355, 83);
+            textBoxGX.Location = new Point(320, 82);
             textBoxGX.Name = "textBoxGX";
             textBoxGX.Size = new Size(61, 27);
             textBoxGX.TabIndex = 7;
+            textBoxGX.TextChanged += textBoxGX_TextChanged;
             // 
             // textBoxBY
             // 
-            textBoxBY.Location = new Point(436, 128);
+            textBoxBY.Location = new Point(401, 127);
             textBoxBY.Name = "textBoxBY";
             textBoxBY.Size = new Size(61, 27);
             textBoxBY.TabIndex = 10;
+            textBoxBY.TextChanged += textBoxBY_TextChanged;
             // 
             // textBoxBX
             // 
-            textBoxBX.Location = new Point(355, 128);
+            textBoxBX.Location = new Point(320, 127);
             textBoxBX.Name = "textBoxBX";
             textBoxBX.Size = new Size(61, 27);
             textBoxBX.TabIndex = 9;
+            textBoxBX.TextChanged += textBoxBX_TextChanged;
             // 
             // label6
             // 
@@ -148,13 +159,65 @@
             // 
             textBoxGamma.Location = new Point(89, 12);
             textBoxGamma.Name = "textBoxGamma";
-            textBoxGamma.Size = new Size(107, 27);
+            textBoxGamma.Size = new Size(117, 27);
             textBoxGamma.TabIndex = 12;
+            textBoxGamma.TextChanged += textBoxGamma_TextChanged;
             // 
-            // UserControl1
+            // textBoxWhiteY
+            // 
+            textBoxWhiteY.Location = new Point(145, 128);
+            textBoxWhiteY.Name = "textBoxWhiteY";
+            textBoxWhiteY.Size = new Size(61, 27);
+            textBoxWhiteY.TabIndex = 17;
+            textBoxWhiteY.TextChanged += textBox1_TextChanged;
+            // 
+            // textBoxWhiteX
+            // 
+            textBoxWhiteX.Location = new Point(64, 128);
+            textBoxWhiteX.Name = "textBoxWhiteX";
+            textBoxWhiteX.Size = new Size(61, 27);
+            textBoxWhiteX.TabIndex = 16;
+            textBoxWhiteX.TextChanged += textBox2_TextChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(9, 131);
+            label7.Name = "label7";
+            label7.Size = new Size(41, 20);
+            label7.TabIndex = 15;
+            label7.Text = "Biały";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(164, 93);
+            label8.Name = "label8";
+            label8.Size = new Size(17, 20);
+            label8.TabIndex = 14;
+            label8.Text = "Y";
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(88, 93);
+            label9.Name = "label9";
+            label9.Size = new Size(18, 20);
+            label9.TabIndex = 13;
+            label9.Text = "X";
+            label9.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // ColorProfileDetailsControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(textBoxWhiteY);
+            Controls.Add(textBoxWhiteX);
+            Controls.Add(label7);
+            Controls.Add(label8);
+            Controls.Add(label9);
             Controls.Add(textBoxGamma);
             Controls.Add(label6);
             Controls.Add(textBoxBY);
@@ -168,8 +231,8 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "UserControl1";
-            Size = new Size(500, 314);
+            Name = "ColorProfileDetailsControl";
+            Size = new Size(469, 161);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -189,5 +252,10 @@
         private TextBox textBoxBX;
         private Label label6;
         private TextBox textBoxGamma;
+        private TextBox textBoxWhiteY;
+        private TextBox textBoxWhiteX;
+        private Label label7;
+        private Label label8;
+        private Label label9;
     }
 }

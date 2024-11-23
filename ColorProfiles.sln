@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorProfiles", "ColorProfiles\ColorProfiles.csproj", "{48D1E165-A6DF-4503-96B9-3B12CD428646}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorProfiles", "ColorProfiles\ColorProfiles.csproj", "{48D1E165-A6DF-4503-96B9-3B12CD428646}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrecalculatedMatrixReader", "PrecalculatedMatrixReader\PrecalculatedMatrixReader.csproj", "{2D1B5D7C-1B40-40CB-B68F-4CDE6E3E249A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{48D1E165-A6DF-4503-96B9-3B12CD428646}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48D1E165-A6DF-4503-96B9-3B12CD428646}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48D1E165-A6DF-4503-96B9-3B12CD428646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1B5D7C-1B40-40CB-B68F-4CDE6E3E249A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1B5D7C-1B40-40CB-B68F-4CDE6E3E249A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1B5D7C-1B40-40CB-B68F-4CDE6E3E249A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1B5D7C-1B40-40CB-B68F-4CDE6E3E249A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
