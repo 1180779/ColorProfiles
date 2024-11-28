@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorProfiles", "ColorProfi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrecalculatedMatrixReader", "PrecalculatedMatrixReader\PrecalculatedMatrixReader.csproj", "{2D1B5D7C-1B40-40CB-B68F-4CDE6E3E249A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinearAlgebra", "LinearAlgebra\LinearAlgebra.csproj", "{EBA6F2A5-C939-476D-8E1F-9382EB86C07B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2D1B5D7C-1B40-40CB-B68F-4CDE6E3E249A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D1B5D7C-1B40-40CB-B68F-4CDE6E3E249A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D1B5D7C-1B40-40CB-B68F-4CDE6E3E249A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBA6F2A5-C939-476D-8E1F-9382EB86C07B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBA6F2A5-C939-476D-8E1F-9382EB86C07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBA6F2A5-C939-476D-8E1F-9382EB86C07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBA6F2A5-C939-476D-8E1F-9382EB86C07B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

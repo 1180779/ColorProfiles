@@ -13,7 +13,7 @@ namespace ColorProfiles
         public ColorProfileChangerForm()
         {
             InitializeComponent();
-            ChromaticAdapter adapter = new(WhitePoint.Illuminats.D65, WhitePoint.Illuminats.D50);
+            ChromaticAdapter adapter = new(WhitePoint.Illuminats.A, WhitePoint.Illuminats.D65);
 
         }
         private void OnProfileChange(object sender, PropertyTabChangedEventArgs e)
@@ -57,8 +57,9 @@ namespace ColorProfiles
                 pictureBoxLoaded.Image = _pictureLoaded.Bitmap;
                 _pictureXYZ = null;
 
-                Invoke((Action)(() => Application.OpenForms["BusyForm"]?.Close()));
+                Invoke((Action)(() => Application.OpenForms[nameof(BusyLoadingForm)]?.Close()));
                 await busyTask;
+                busy.Dispose();
             }
         }
 
@@ -75,11 +76,12 @@ namespace ColorProfiles
             Task busyTask = Task.Run(() => busy.ShowDialog());
             await busy.WaitForReadyAsync();
 
-            if (_pictureXYZ == null || _colorProfileChanged)
-            {
-                CalculateXYZ();
-                _colorProfileChanged = false;
-            }
+            //if (_pictureXYZ == null || _colorProfileChanged)
+            //{
+            //    CalculateXYZ();
+            //    _colorProfileChanged = false;
+            //}
+            CalculateXYZ();
             if (_pictureConverted == null ||
                 _pictureConverted.Bitmap.Size != _pictureLoaded.Bitmap.Size)
             {
@@ -112,7 +114,7 @@ namespace ColorProfiles
             });
             pictureBoxChanged.Image = _pictureConverted.Bitmap;
 
-            Invoke((Action)(() => Application.OpenForms["BusyForm"]?.Close()));
+            Invoke((Action)(() => Application.OpenForms[nameof(BusyConvertingForm)]?.Close()));
             await busyTask;
             busy.Dispose();
         }

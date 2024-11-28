@@ -10,9 +10,12 @@ namespace ColorProfiles.Colors
 {
     public class RGBtoCIEXYZ
     {
+        private float _gamma;
         private Matrix4x4 _M;
         public RGBtoCIEXYZ(ColorProfile colorProfile) 
         {
+            _gamma = colorProfile.Gamma;
+
             float x = colorProfile.WhitePoint.WhiteX;
             float y = colorProfile.WhitePoint.WhiteY;
             Vector4 Xw = new Vector4
@@ -53,9 +56,9 @@ namespace ColorProfiles.Colors
         public Vector3 XYZ(Color c)
         {
             Vector4 RGB = new Vector4 {
-                X = c.R,
-                Y = c.G,
-                Z = c.B,
+                X = (float)Math.Pow(c.R / 255f, _gamma),
+                Y = (float)Math.Pow(c.G / 255f, _gamma),
+                Z = (float)Math.Pow(c.B / 255f, _gamma),
                 W = 0
             };
             Vector4 res = Vector4.Transform(RGB, _M);

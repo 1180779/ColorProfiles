@@ -10,7 +10,7 @@ namespace ColorProfiles.Colors
     public class ColorProfile : ICloneable
     {
         public static readonly string Custom = "Custom";
-        public readonly string ProfileName = Custom;
+        public string ProfileName { get; private set; } = Custom;
         public ColorProfile() { }
         public ColorProfile(string profileName) { ProfileName = profileName; }
         public override string ToString() { return ProfileName; }

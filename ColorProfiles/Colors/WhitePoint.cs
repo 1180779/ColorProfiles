@@ -9,7 +9,7 @@ namespace ColorProfiles.Colors
     public struct WhitePoint : ICloneable
     {
         public static readonly string Custom = "Custom";
-        public readonly string Name = Custom;
+        public string Name { get; private set; } = Custom;
         public float WhiteX { get; set; }
         public float WhiteY { get; set; }
         public int TemperatureK { get; set; } = 0;

@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LinearAlgebra\LinearAlgebra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="BusyLoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>

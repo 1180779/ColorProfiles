@@ -28,6 +28,7 @@ namespace ColorProfiles.Colors
             Vector4 res = Vector4.Transform(temp, _M);
             return new Vector3(res.X, res.Y, res.Z);
         }
+
         public static readonly Dictionary<(string, string), Matrix4x4> _precalculatedMatrices = new()
         {
             { ("A", "B"), new Matrix4x4(0.8905163f, -0.0829136f, 0.2680945f, 0,

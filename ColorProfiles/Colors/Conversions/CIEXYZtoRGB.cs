@@ -9,9 +9,12 @@ namespace ColorProfiles.Colors
 {
     public class CIEXYZtoRGB
     {
+        private float _1overGamma;
         private Matrix4x4 _M;
         public CIEXYZtoRGB(ColorProfile colorProfile) 
         {
+            _1overGamma = 1 / colorProfile.Gamma;
+
             float x = colorProfile.WhitePoint.WhiteX;
             float y = colorProfile.WhitePoint.WhiteY;
             Vector4 Xw = new Vector4
@@ -54,15 +57,22 @@ namespace ColorProfiles.Colors
 
         public Vector3 RGB(Vector3 XYZ)
         {
-            Vector4 RGB = new Vector4
+            Vector4 RGBlinear = new Vector4
             {
                 X = XYZ.X,
                 Y = XYZ.Y,
                 Z = XYZ.Z,
                 W = 0
             };
-            Vector4 res = Vector4.Transform(RGB, _M);
-            return new Vector3 { X = res.X, Y = res.Y, Z = res.Z };
+            Vector4 res = Vector4.Transform(RGBlinear, _M);
+
+            Vector3 RGB = new Vector3
+            {
+                X = (float)Math.Pow(res.X, _1overGamma),
+                Y = (float)Math.Pow(res.Y, _1overGamma),
+                Z = (float)Math.Pow(res.Z, _1overGamma)
+            }; 
+            return RGB * 255f;
         }
     }
 }
