@@ -9,12 +9,14 @@ namespace ColorProfiles
         private Vector3[,]? _pictureXYZ;
         private Vector3[,]? _pictureXYZAdapted;
         private DirectBitmap? _pictureConverted;
+        private DirectBitmap? _pictureCouldNotConvert;
         private bool _colorProfileChanged = true;
+        private bool _viewNotChanged = false;
         public ColorProfileChangerForm()
         {
             InitializeComponent();
+            // chromatic adapter test
             //ChromaticAdapter adapter = new(WhitePoint.Illuminats.A, WhitePoint.Illuminats.D65);
-
         }
         private void OnProfileChange(object sender, PropertyTabChangedEventArgs e)
         {
@@ -85,6 +87,7 @@ namespace ColorProfiles
             if (_pictureConverted == null ||
                 _pictureConverted.Bitmap.Size != _pictureLoaded.Bitmap.Size)
             {
+                _pictureCouldNotConvert = new DirectBitmap(_pictureLoaded.Width, _pictureLoaded.Height);
                 _pictureConverted = new DirectBitmap(_pictureLoaded.Width, _pictureLoaded.Height);
             }
 
@@ -105,14 +108,26 @@ namespace ColorProfiles
                 for (int j = 0; j < _pictureLoaded.Height; j++)
                 {
                     var rgb = toRGBconverter.RGB(_pictureXYZAdapted[i, j]);
+
+                    int nr = rgb.X < 0f || rgb.X > 255f ? 255 : 0;
+                    int ng = rgb.Y < 0f || rgb.Y > 255f ? 255 : 0;
+                    int nb = rgb.Z < 0f || rgb.Z > 255f ? 255 : 0;
+                    _pictureCouldNotConvert!.SetPixel(i, j, Color.FromArgb(nr, ng, nb));
+
                     int R = Math.Max(0, Math.Min(255, (int)rgb.X));
                     int G = Math.Max(0, Math.Min(255, (int)rgb.Y));
                     int B = Math.Max(0, Math.Min(255, (int)rgb.Z));
-                    Color c = Color.FromArgb(R, G, B);
-                    _pictureConverted.SetPixel(i, j, c);
+                    _pictureConverted.SetPixel(i, j, Color.FromArgb(R, G, B));
                 }
             });
-            pictureBoxChanged.Image = _pictureConverted.Bitmap;
+            if (_viewNotChanged)
+            {
+                pictureBoxChanged.Image = _pictureCouldNotConvert!.Bitmap;
+            }
+            else
+            {
+                pictureBoxChanged.Image = _pictureConverted.Bitmap;
+            }
 
             Invoke((Action)(() => Application.OpenForms[nameof(BusyConvertingForm)]?.Close()));
             await busyTask;
@@ -141,6 +156,9 @@ namespace ColorProfiles
             var strip = (ToolStripMenuItem)menuStripOptions.Items[4];
             ((ToolStripMenuItem)strip.DropDownItems[0]).Checked = false;
             ((ToolStripMenuItem)strip.DropDownItems[1]).Checked = true;
+            if(_pictureCouldNotConvert != null)
+                pictureBoxChanged.Image = _pictureCouldNotConvert!.Bitmap;
+            _viewNotChanged = true;
         }
 
         private void wynikToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,6 +166,9 @@ namespace ColorProfiles
             var strip = (ToolStripMenuItem) menuStripOptions.Items[4];
             ((ToolStripMenuItem)strip.DropDownItems[0]).Checked = true;
             ((ToolStripMenuItem) strip.DropDownItems[1]).Checked = false;
+            if (_pictureConverted != null)
+                pictureBoxChanged.Image = _pictureConverted!.Bitmap;
+            _viewNotChanged = false;
         }
     }
 }

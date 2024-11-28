@@ -37,7 +37,7 @@ namespace ColorProfiles.Colors
                 GreenX = 0.3f,
                 GreenY = 0.6f,
                 BlueX = 0.15f,
-                BlueY = 0.32902f,
+                BlueY = 0.06f,
                 WhitePoint = WhitePoint.Illuminats.D65,
             };
             public static ColorProfile AdobeRGB => new ColorProfile("AdobeRGB") { 
@@ -47,7 +47,7 @@ namespace ColorProfiles.Colors
                 GreenX = 0.21f,
                 GreenY = 0.71f,
                 BlueX = 0.15f,
-                BlueY = 0.32902f,
+                BlueY = 0.06f,
                 WhitePoint = WhitePoint.Illuminats.D65
             };
             public static ColorProfile WideGamut => new ColorProfile("WideGamut") {
@@ -57,7 +57,7 @@ namespace ColorProfiles.Colors
                 GreenX = 0.1152f,
                 GreenY = 0.8264f,
                 BlueX = 0.1566f,
-                BlueY = 0.3585f,
+                BlueY = 0.0177f,
                 WhitePoint = WhitePoint.Illuminats.D50
             };
         }

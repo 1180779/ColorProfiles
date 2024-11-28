@@ -10,10 +10,12 @@ namespace ColorProfiles.Colors
 {
     public class CIEXYZtoRGB
     {
+        private string _colorProfileName;
         private float _1overGamma;
         private Matrix3x3 _M;
         public CIEXYZtoRGB(ColorProfile colorProfile) 
         {
+            _colorProfileName = colorProfile.ProfileName;
             _1overGamma = 1 / colorProfile.Gamma;
 
             float x = colorProfile.WhitePoint.WhiteX;
@@ -54,6 +56,23 @@ namespace ColorProfiles.Colors
         {
             Vec3 res = _M * XYZ; // _M * RGBLinear
 
+            
+            //if(_colorProfileName == "sRGB")
+            //{
+            //    Vector3 sRGB = new();
+            //    for(int i = 0; i < 3; ++i)
+            //    {
+            //        if(XYZ[i] <= 0.0031308f)
+            //        {
+            //            sRGB[i] = 12.92f * XYZ[i];
+            //        }
+            //        else
+            //        {
+            //            sRGB[i] = 1.055f * (float)Math.Pow(XYZ[i], 1/2.4f) - 0.055f;
+            //        }
+            //    }
+            //    return sRGB * 255f;
+            //}
             Vector3 RGB = new Vector3
             {
                 X = (float)Math.Pow(res.X, _1overGamma),
