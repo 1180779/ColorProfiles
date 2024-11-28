@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
-namespace ColorProfiles.Calculations
+namespace LinearAlgebra
 {
     public struct Vec3
     {
@@ -23,6 +24,9 @@ namespace ColorProfiles.Calculations
 
         public static bool operator ==(Vec3 lhs, Vec3 rhs) { return lhs.X == rhs.X && lhs.Y == rhs.Y && lhs.Z == rhs.Z; }
         public static bool operator !=(Vec3 lhs, Vec3 rhs) { return !(lhs == rhs); }
+
+        public static implicit operator Vector3(Vec3 v) => new Vector3(v.X, v.Y, v.Z);
+        public static implicit operator Vec3(Vector3 v) => new Vec3(v.X, v.Y, v.Z);
 
         public override readonly bool Equals(object? obj)
         {

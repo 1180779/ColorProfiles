@@ -31,6 +31,7 @@
             Colors.ColorProfile colorProfile1 = new Colors.ColorProfile();
             colorProfileDetailsControl1 = new ColorProfileDetailsControl();
             comboBoxColorProfiles = new ComboBox();
+            comboBoxWhitePoint = new ComboBox();
             SuspendLayout();
             // 
             // colorProfileDetailsControl1
@@ -53,14 +54,24 @@
             comboBoxColorProfiles.FormattingEnabled = true;
             comboBoxColorProfiles.Location = new Point(3, 3);
             comboBoxColorProfiles.Name = "comboBoxColorProfiles";
-            comboBoxColorProfiles.Size = new Size(471, 28);
+            comboBoxColorProfiles.Size = new Size(472, 28);
             comboBoxColorProfiles.TabIndex = 1;
             comboBoxColorProfiles.SelectedIndexChanged += comboBoxColorProfiles_SelectedIndexChanged;
+            // 
+            // comboBoxWhitePoint
+            // 
+            comboBoxWhitePoint.FormattingEnabled = true;
+            comboBoxWhitePoint.Location = new Point(3, 126);
+            comboBoxWhitePoint.Name = "comboBoxWhitePoint";
+            comboBoxWhitePoint.Size = new Size(61, 28);
+            comboBoxWhitePoint.TabIndex = 2;
+            comboBoxWhitePoint.SelectedIndexChanged += comboBoxWhitePoint_SelectedIndexChanged;
             // 
             // ColorProfileControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(comboBoxWhitePoint);
             Controls.Add(comboBoxColorProfiles);
             Controls.Add(colorProfileDetailsControl1);
             Name = "ColorProfileControl";
@@ -72,5 +83,6 @@
 
         private ColorProfileDetailsControl colorProfileDetailsControl1;
         private ComboBox comboBoxColorProfiles;
+        private ComboBox comboBoxWhitePoint;
     }
 }

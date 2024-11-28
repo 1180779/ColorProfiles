@@ -13,7 +13,7 @@ namespace ColorProfiles
         public ColorProfileChangerForm()
         {
             InitializeComponent();
-            ChromaticAdapter adapter = new(WhitePoint.Illuminats.A, WhitePoint.Illuminats.D65);
+            //ChromaticAdapter adapter = new(WhitePoint.Illuminats.A, WhitePoint.Illuminats.D65);
 
         }
         private void OnProfileChange(object sender, PropertyTabChangedEventArgs e)
@@ -88,7 +88,7 @@ namespace ColorProfiles
                 _pictureConverted = new DirectBitmap(_pictureLoaded.Width, _pictureLoaded.Height);
             }
 
-            ChromaticAdapterPrecalculated adapter = new(colorProfileControlLoaded.ColorProfile.WhitePoint,
+            ChromaticAdapter adapter = new(colorProfileControlLoaded.ColorProfile.WhitePoint,
                 colorProfileControlChanged.ColorProfile.WhitePoint);
             _pictureXYZAdapted = new Vector3[_pictureLoaded.Width, _pictureLoaded.Height];
             for (int i = 0; i < _pictureLoaded.Width; i++)
@@ -121,9 +121,9 @@ namespace ColorProfiles
 
         private void zapiszWynikToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(_pictureConverted == null)
+            if (_pictureConverted == null)
             {
-                var msg = MessageBox.Show("Brak obrazu do zapisania.", "Brak zdjêcia", 
+                var msg = MessageBox.Show("Brak obrazu do zapisania.", "Brak zdjêcia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
@@ -134,6 +134,20 @@ namespace ColorProfiles
             {
                 _pictureConverted.Bitmap.Save(saveDialog.FileName);
             }
+        }
+
+        private void nieprzekonwertowanePikseleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var strip = (ToolStripMenuItem)menuStripOptions.Items[4];
+            ((ToolStripMenuItem)strip.DropDownItems[0]).Checked = false;
+            ((ToolStripMenuItem)strip.DropDownItems[1]).Checked = true;
+        }
+
+        private void wynikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var strip = (ToolStripMenuItem) menuStripOptions.Items[4];
+            ((ToolStripMenuItem)strip.DropDownItems[0]).Checked = true;
+            ((ToolStripMenuItem) strip.DropDownItems[1]).Checked = false;
         }
     }
 }

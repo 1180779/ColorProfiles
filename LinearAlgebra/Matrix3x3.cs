@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ColorProfiles.Calculations
+namespace LinearAlgebra
 {
     public struct Matrix3x3
     {

@@ -37,55 +37,128 @@ namespace ColorProfiles
         private void textBoxRX_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            ColorProfile.RedX = float.Parse(textBox.Text);
+            if (float.TryParse(textBox.Text, out float res))
+            {
+                ColorProfile.RedX = res;
+            }
+            else
+            {
+                MessageBox.Show("Invalid value. Could not convert to float. ", "Invalid value", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBoxRY_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            ColorProfile.RedY = float.Parse(textBox.Text);
+            if (float.TryParse(textBox.Text, out float res))
+            {
+                ColorProfile.RedY = res;
+            }
+            else
+            {
+                MessageBox.Show("Invalid value. Could not convert to float. ", "Invalid value",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBoxGX_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            ColorProfile.GreenX = float.Parse(textBox.Text);
+            if (float.TryParse(textBox.Text, out float res))
+            {
+                ColorProfile.GreenX = res;
+            }
+            else
+            {
+                MessageBox.Show("Invalid value. Could not convert to float. ", "Invalid value",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBoxGY_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            ColorProfile.GreenY = float.Parse(textBox.Text);
+            if (float.TryParse(textBox.Text, out float res))
+            {
+                ColorProfile.GreenY = res;
+            }
+            else
+            {
+                MessageBox.Show("Invalid value. Could not convert to float. ", "Invalid value",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBoxBX_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            ColorProfile.BlueX = float.Parse(textBox.Text);
+            if (float.TryParse(textBox.Text, out float res))
+            {
+                ColorProfile.BlueX = res;
+            }
+            else
+            {
+                MessageBox.Show("Invalid value. Could not convert to float. ", "Invalid value",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void textBoxBY_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            ColorProfile.BlueY = float.Parse(textBox.Text);
+            if(float.TryParse(textBox.Text, out float res))
+            {
+                ColorProfile.BlueY = res;
+            }
+            else
+            {
+                MessageBox.Show("Invalid value. Could not convert to float. ", "Invalid value",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            ColorProfile.WhitePoint.WhiteX = float.Parse(textBox.Text);
+            if (float.TryParse(textBox.Text, out float res))
+            {
+                ColorProfile.WhitePoint.WhiteX = res;
+            }
+            else
+            {
+                MessageBox.Show("Invalid value. Could not convert to float. ", "Invalid value",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            ColorProfile.WhitePoint.WhiteY = float.Parse(textBox.Text);
+            if (float.TryParse(textBox.Text, out float res))
+            {
+                ColorProfile.WhitePoint.WhiteY = res;
+            }
+            else
+            {
+                MessageBox.Show("Invalid value. Could not convert to float. ", "Invalid value",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBoxGamma_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            ColorProfile.Gamma = float.Parse(textBox.Text);
+            if (float.TryParse(textBox.Text, out float res))
+            {
+                ColorProfile.Gamma = res;
+            }
+            else
+            {
+                MessageBox.Show("Invalid value. Could not convert to float. ", "Invalid value",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

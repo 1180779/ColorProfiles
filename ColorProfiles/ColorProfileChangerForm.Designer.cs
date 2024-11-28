@@ -32,14 +32,18 @@
             colorProfileControlChanged = new ColorProfileControl();
             pictureBoxLoaded = new PictureBox();
             pictureBoxChanged = new PictureBox();
-            menuStrip1 = new MenuStrip();
+            menuStripOptions = new MenuStrip();
             wczytajZdjęcieToolStripMenuItem = new ToolStripMenuItem();
             generujToolStripMenuItem = new ToolStripMenuItem();
             zapiszWynikToolStripMenuItem = new ToolStripMenuItem();
             szarośćToolStripMenuItem = new ToolStripMenuItem();
+            wynikKonwersjiToolStripMenuItem = new ToolStripMenuItem();
+            wynikToolStripMenuItem = new ToolStripMenuItem();
+            nieprzekonwertowanePikseleToolStripMenuItem = new ToolStripMenuItem();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLoaded).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxChanged).BeginInit();
-            menuStrip1.SuspendLayout();
+            menuStripOptions.SuspendLayout();
             SuspendLayout();
             // 
             // colorProfileControlLoaded
@@ -74,15 +78,15 @@
             pictureBoxChanged.TabIndex = 3;
             pictureBoxChanged.TabStop = false;
             // 
-            // menuStrip1
+            // menuStripOptions
             // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { wczytajZdjęcieToolStripMenuItem, generujToolStripMenuItem, zapiszWynikToolStripMenuItem, szarośćToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(997, 28);
-            menuStrip1.TabIndex = 4;
-            menuStrip1.Text = "menuStrip1";
+            menuStripOptions.ImageScalingSize = new Size(20, 20);
+            menuStripOptions.Items.AddRange(new ToolStripItem[] { wczytajZdjęcieToolStripMenuItem, generujToolStripMenuItem, zapiszWynikToolStripMenuItem, szarośćToolStripMenuItem, wynikKonwersjiToolStripMenuItem });
+            menuStripOptions.Location = new Point(0, 0);
+            menuStripOptions.Name = "menuStripOptions";
+            menuStripOptions.Size = new Size(997, 28);
+            menuStripOptions.TabIndex = 4;
+            menuStripOptions.Text = "menuStrip1";
             // 
             // wczytajZdjęcieToolStripMenuItem
             // 
@@ -108,26 +112,48 @@
             // szarośćToolStripMenuItem
             // 
             szarośćToolStripMenuItem.Name = "szarośćToolStripMenuItem";
-            szarośćToolStripMenuItem.Size = new Size(73, 24);
-            szarośćToolStripMenuItem.Text = "Szarość";
+            szarośćToolStripMenuItem.Size = new Size(14, 24);
+            // 
+            // wynikKonwersjiToolStripMenuItem
+            // 
+            wynikKonwersjiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { wynikToolStripMenuItem, nieprzekonwertowanePikseleToolStripMenuItem });
+            wynikKonwersjiToolStripMenuItem.Name = "wynikKonwersjiToolStripMenuItem";
+            wynikKonwersjiToolStripMenuItem.Size = new Size(129, 24);
+            wynikKonwersjiToolStripMenuItem.Text = "Wynik konwersji";
+            // 
+            // wynikToolStripMenuItem
+            // 
+            wynikToolStripMenuItem.Checked = true;
+            wynikToolStripMenuItem.CheckState = CheckState.Checked;
+            wynikToolStripMenuItem.Name = "wynikToolStripMenuItem";
+            wynikToolStripMenuItem.Size = new Size(291, 26);
+            wynikToolStripMenuItem.Text = "Wynik";
+            wynikToolStripMenuItem.Click += wynikToolStripMenuItem_Click;
+            // 
+            // nieprzekonwertowanePikseleToolStripMenuItem
+            // 
+            nieprzekonwertowanePikseleToolStripMenuItem.Name = "nieprzekonwertowanePikseleToolStripMenuItem";
+            nieprzekonwertowanePikseleToolStripMenuItem.Size = new Size(291, 26);
+            nieprzekonwertowanePikseleToolStripMenuItem.Text = "Nieprzekonwertowane piksele";
+            nieprzekonwertowanePikseleToolStripMenuItem.Click += nieprzekonwertowanePikseleToolStripMenuItem_Click;
             // 
             // ColorProfileChangerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(997, 724);
-            Controls.Add(menuStrip1);
+            Controls.Add(menuStripOptions);
             Controls.Add(pictureBoxChanged);
             Controls.Add(pictureBoxLoaded);
             Controls.Add(colorProfileControlChanged);
             Controls.Add(colorProfileControlLoaded);
-            MainMenuStrip = menuStrip1;
+            MainMenuStrip = menuStripOptions;
             Name = "ColorProfileChangerForm";
             Text = "ColorProfilesChanger";
             ((System.ComponentModel.ISupportInitialize)pictureBoxLoaded).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxChanged).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            menuStripOptions.ResumeLayout(false);
+            menuStripOptions.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -138,10 +164,14 @@
         private ColorProfileControl colorProfileControlChanged;
         private PictureBox pictureBoxLoaded;
         private PictureBox pictureBoxChanged;
-        private MenuStrip menuStrip1;
+        private MenuStrip menuStripOptions;
         private ToolStripMenuItem wczytajZdjęcieToolStripMenuItem;
         private ToolStripMenuItem generujToolStripMenuItem;
         private ToolStripMenuItem zapiszWynikToolStripMenuItem;
         private ToolStripMenuItem szarośćToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private ToolStripMenuItem wynikKonwersjiToolStripMenuItem;
+        private ToolStripMenuItem wynikToolStripMenuItem;
+        private ToolStripMenuItem nieprzekonwertowanePikseleToolStripMenuItem;
     }
 }
