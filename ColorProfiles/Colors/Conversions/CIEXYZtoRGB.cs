@@ -78,7 +78,7 @@ namespace ColorProfiles.Colors
                 X = (float)Math.Pow(res.X, _1overGamma),
                 Y = (float)Math.Pow(res.Y, _1overGamma),
                 Z = (float)Math.Pow(res.Z, _1overGamma)
-            }; 
+            };
             return RGB * 255f;
         }
     }

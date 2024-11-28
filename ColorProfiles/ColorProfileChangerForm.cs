@@ -109,9 +109,9 @@ namespace ColorProfiles
                 {
                     var rgb = toRGBconverter.RGB(_pictureXYZAdapted[i, j]);
 
-                    int nr = rgb.X < 0f || rgb.X > 255f ? 255 : 0;
-                    int ng = rgb.Y < 0f || rgb.Y > 255f ? 255 : 0;
-                    int nb = rgb.Z < 0f || rgb.Z > 255f ? 255 : 0;
+                    int nr = rgb.X is float.NaN || rgb.X > 255f ? 255 : 0;
+                    int ng = rgb.Y is float.NaN || rgb.Y > 255f ? 255 : 0;
+                    int nb = rgb.Z is float.NaN || rgb.Z > 255f ? 255 : 0;
                     _pictureCouldNotConvert!.SetPixel(i, j, Color.FromArgb(nr, ng, nb));
 
                     int R = Math.Max(0, Math.Min(255, (int)rgb.X));
@@ -156,19 +156,52 @@ namespace ColorProfiles
             var strip = (ToolStripMenuItem)menuStripOptions.Items[4];
             ((ToolStripMenuItem)strip.DropDownItems[0]).Checked = false;
             ((ToolStripMenuItem)strip.DropDownItems[1]).Checked = true;
-            if(_pictureCouldNotConvert != null)
+            if (_pictureCouldNotConvert != null)
                 pictureBoxChanged.Image = _pictureCouldNotConvert!.Bitmap;
             _viewNotChanged = true;
         }
 
         private void wynikToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var strip = (ToolStripMenuItem) menuStripOptions.Items[4];
+            var strip = (ToolStripMenuItem)menuStripOptions.Items[4];
             ((ToolStripMenuItem)strip.DropDownItems[0]).Checked = true;
-            ((ToolStripMenuItem) strip.DropDownItems[1]).Checked = false;
+            ((ToolStripMenuItem)strip.DropDownItems[1]).Checked = false;
             if (_pictureConverted != null)
                 pictureBoxChanged.Image = _pictureConverted!.Bitmap;
             _viewNotChanged = false;
+        }
+
+        private void oryginalneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBoxLoaded.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxChanged.SizeMode = PictureBoxSizeMode.Zoom;
+
+            var strip = (ToolStripMenuItem)menuStripOptions.Items[5];
+            ((ToolStripMenuItem)strip.DropDownItems[0]).Checked = true;
+            ((ToolStripMenuItem)strip.DropDownItems[1]).Checked = false;
+            ((ToolStripMenuItem)strip.DropDownItems[2]).Checked = false;
+        }
+
+        private void rozci¹niêcieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBoxLoaded.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxChanged.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            var strip = (ToolStripMenuItem)menuStripOptions.Items[5];
+            ((ToolStripMenuItem)strip.DropDownItems[0]).Checked = false;
+            ((ToolStripMenuItem)strip.DropDownItems[1]).Checked = true;
+            ((ToolStripMenuItem)strip.DropDownItems[2]).Checked = false;
+        }
+
+        private void originToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBoxLoaded.SizeMode = PictureBoxSizeMode.Normal;
+            pictureBoxChanged.SizeMode = PictureBoxSizeMode.Normal;
+
+            var strip = (ToolStripMenuItem)menuStripOptions.Items[5];
+            ((ToolStripMenuItem)strip.DropDownItems[0]).Checked = false;
+            ((ToolStripMenuItem)strip.DropDownItems[1]).Checked = false;
+            ((ToolStripMenuItem)strip.DropDownItems[2]).Checked = true;
         }
     }
 }

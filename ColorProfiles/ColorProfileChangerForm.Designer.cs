@@ -40,6 +40,10 @@
             wynikKonwersjiToolStripMenuItem = new ToolStripMenuItem();
             wynikToolStripMenuItem = new ToolStripMenuItem();
             nieprzekonwertowanePikseleToolStripMenuItem = new ToolStripMenuItem();
+            wyświetlanieZdjęćToolStripMenuItem = new ToolStripMenuItem();
+            zoomToolStripMenuItem = new ToolStripMenuItem();
+            strethToolStripMenuItem = new ToolStripMenuItem();
+            originToolStripMenuItem = new ToolStripMenuItem();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLoaded).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxChanged).BeginInit();
@@ -65,7 +69,7 @@
             pictureBoxLoaded.Location = new Point(12, 235);
             pictureBoxLoaded.Name = "pictureBoxLoaded";
             pictureBoxLoaded.Size = new Size(478, 478);
-            pictureBoxLoaded.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLoaded.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxLoaded.TabIndex = 2;
             pictureBoxLoaded.TabStop = false;
             // 
@@ -74,14 +78,14 @@
             pictureBoxChanged.Location = new Point(509, 235);
             pictureBoxChanged.Name = "pictureBoxChanged";
             pictureBoxChanged.Size = new Size(478, 477);
-            pictureBoxChanged.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxChanged.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxChanged.TabIndex = 3;
             pictureBoxChanged.TabStop = false;
             // 
             // menuStripOptions
             // 
             menuStripOptions.ImageScalingSize = new Size(20, 20);
-            menuStripOptions.Items.AddRange(new ToolStripItem[] { wczytajZdjęcieToolStripMenuItem, generujToolStripMenuItem, zapiszWynikToolStripMenuItem, szarośćToolStripMenuItem, wynikKonwersjiToolStripMenuItem });
+            menuStripOptions.Items.AddRange(new ToolStripItem[] { wczytajZdjęcieToolStripMenuItem, generujToolStripMenuItem, zapiszWynikToolStripMenuItem, szarośćToolStripMenuItem, wynikKonwersjiToolStripMenuItem, wyświetlanieZdjęćToolStripMenuItem });
             menuStripOptions.Location = new Point(0, 0);
             menuStripOptions.Name = "menuStripOptions";
             menuStripOptions.Size = new Size(997, 28);
@@ -137,6 +141,36 @@
             nieprzekonwertowanePikseleToolStripMenuItem.Text = "Nieprzekonwertowane piksele";
             nieprzekonwertowanePikseleToolStripMenuItem.Click += nieprzekonwertowanePikseleToolStripMenuItem_Click;
             // 
+            // wyświetlanieZdjęćToolStripMenuItem
+            // 
+            wyświetlanieZdjęćToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { zoomToolStripMenuItem, strethToolStripMenuItem, originToolStripMenuItem });
+            wyświetlanieZdjęćToolStripMenuItem.Name = "wyświetlanieZdjęćToolStripMenuItem";
+            wyświetlanieZdjęćToolStripMenuItem.Size = new Size(149, 24);
+            wyświetlanieZdjęćToolStripMenuItem.Text = "Wyświetlanie zdjęć";
+            // 
+            // zoomToolStripMenuItem
+            // 
+            zoomToolStripMenuItem.Checked = true;
+            zoomToolStripMenuItem.CheckState = CheckState.Checked;
+            zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
+            zoomToolStripMenuItem.Size = new Size(224, 26);
+            zoomToolStripMenuItem.Text = "Zoom";
+            zoomToolStripMenuItem.Click += oryginalneToolStripMenuItem_Click;
+            // 
+            // strethToolStripMenuItem
+            // 
+            strethToolStripMenuItem.Name = "strethToolStripMenuItem";
+            strethToolStripMenuItem.Size = new Size(224, 26);
+            strethToolStripMenuItem.Text = "Rozciąnięcie";
+            strethToolStripMenuItem.Click += rozciąnięcieToolStripMenuItem_Click;
+            // 
+            // originToolStripMenuItem
+            // 
+            originToolStripMenuItem.Name = "originToolStripMenuItem";
+            originToolStripMenuItem.Size = new Size(224, 26);
+            originToolStripMenuItem.Text = "Oryginał";
+            originToolStripMenuItem.Click += originToolStripMenuItem_Click;
+            // 
             // ColorProfileChangerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -173,5 +207,9 @@
         private ToolStripMenuItem wynikKonwersjiToolStripMenuItem;
         private ToolStripMenuItem wynikToolStripMenuItem;
         private ToolStripMenuItem nieprzekonwertowanePikseleToolStripMenuItem;
+        private ToolStripMenuItem wyświetlanieZdjęćToolStripMenuItem;
+        private ToolStripMenuItem zoomToolStripMenuItem;
+        private ToolStripMenuItem strethToolStripMenuItem;
+        private ToolStripMenuItem originToolStripMenuItem;
     }
 }
